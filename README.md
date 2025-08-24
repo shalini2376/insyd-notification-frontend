@@ -45,7 +45,7 @@ npm start
 npm run build
 
 ### 🔗 Deployment
-Hosted on Vercel/Netlify.
+Hosted on Vercel.
 The main branch is automatically deployed.
 
 ### 📚 Dependencies
