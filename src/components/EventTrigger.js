@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 
+const API_URL = "https://insyd-notification-backend-s1xa.onrender.com";
+
 function EventTrigger({ setCurrentTargetUser }) {
     const [sourceUserId, setSourceUserId] = useState("")
     const [targetUserId, setTargetUserId] = useState("")
@@ -9,7 +11,7 @@ function EventTrigger({ setCurrentTargetUser }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await axios.post("http://localhost:5000/events", {
+            const res = await axios.post(`${API_URL}/events`, {
                 sourceUserId,
                 targetUserId,
                 type,
@@ -24,7 +26,7 @@ function EventTrigger({ setCurrentTargetUser }) {
             setSourceUserId("");
             setTargetUserId("");
         } catch (err) {
-            console.log(err)
+            console.error("Error creating event:", err.response?.data || err.message);
             alert("Error creating event");
         }
     }

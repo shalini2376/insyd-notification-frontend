@@ -10,7 +10,7 @@ function  NotificationList({ targetUserId }) {
 
     const fetchNotifications = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/notifications/${targetUserId}`);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/notifications/${targetUserId}`);
         // console.log("Fetched notifications:", res.data);
         setNotifications((prev) => {
             const existingIds = prev.map(n => n.notificationId);
